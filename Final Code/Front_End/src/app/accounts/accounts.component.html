@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-bar w3-border w3-black">
+        <input type="button" value="Home" class="w3-bar-item w3-button" (click)="navigate('userDash')">
+        <input type="button" value="Cheques" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('cheques')">
+        <input type="button" value="Deposit" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('deposit')">
+        <input type="button" value="View Accounts"  class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('accounts')">
+        <input type="button" value="My Profile" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('profile')">
+        <input type="button" value="Log out" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="logout()">
+
+      </div>
+</body>
+</html>

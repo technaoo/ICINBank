@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-bar w3-border w3-black">
+        <input type="button" value="Home" class="w3-bar-item w3-button" (click)="navigate('userDash')">
+        <input type="button" value="Transaction" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('transaction')">
+        <input type="button" value="Cheques" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('cheques')">
+        <input type="button" value="Deposit" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('deposit')">
+        <input type="button" value="My Profile" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('profile')">
+        <input type="button" value="Log out" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="logout()">
+
+
+    </div>
+    
+    <div class="div center "  style="color:white" *ngIf="start == true" >
+        <form [formGroup]="depRef" (ngSubmit)="add()">
+    How much do you want to add?
+        <input class="w3-input w3-border w3-hover-grey" type="number" maxlength="10000000000" style="width:450px; height:30px" placeholder="0" formControlName="amount">
+        <br>Payment Method <br>
+        <select class="w3-select" formControlName="transaction_method" value="Type of Method">
+            <option value="1">UPI</option>
+            <option value="2">Debit/Credit Card</option>
+        </select><br/><br>
+        <div [hidden]="de">
+        Which Account should be credited?
+        <select class="w3-select" formControlName="acc_type" value="Type of Method" >
+            <option value="1">Primary</option>
+            <option value="3">Savings</option>
+        </select><br/><br>
+    </div>
+
+        <input type="submit"  class="w3-btn w3-ripple w3-small w3-red" value="Add"/> 
+        </form>
+    
+
+    </div>
+
+    <div class="div center " style="color:white" *ngIf="upi == true">
+        <form [formGroup]="upiRef">
+        Give us your virtual UPI ID.
+        <input class="w3-input w3-border w3-hover-grey" type="text" style="width:450px; height:30px" placeholder="0" formControlName="upi_address"><br>
+        <input type="button" value="Add" class="w3-bar-item w3-button w3-red" (click)="upi_next()">
+        </form>
+    </div>
+    
+
+    <div class="div center" style="color:white" *ngIf="de_cr == true">
+        <form [formGroup]="Deb_Cre_Ref">
+        Your credit/debit credentials <br>
+        <input class="w3-input w3-border w3-hover-grey" type="text" style="width:450px; height:30px" placeholder="Account Holder's Name" formControlName="acc_holder"><br>
+        <input class="w3-input w3-border w3-hover-grey" type="number" maxlength="17" style="width:450px; height:30px" placeholder="Card Number" formControlName="Card_no"><br>
+        <input class="w3-input w3-border w3-hover-grey" type="numbre" maxlength="4" style="width:450px; height:30px" placeholder="CVV" formControlName="CVV"><br>
+        Expiry Date: 
+        <input type="date" placeholder="Expiry Date" formControlName="Expiry"> <br>
+        <input type="button" value="Add" class="w3-bar-item w3-button w3-red" (click)="debit()">
+        </form>  
+    </div>
+            
+</body>
+</html>

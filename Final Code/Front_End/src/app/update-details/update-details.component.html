@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+        <div *ngIf="ch_mail ==true" class="center"> Enter your new mail ID <br>
+          <p><input class="w3-input w3-border w3-hover-grey" type="text" placeholder="New Mail ID"  style="width:450px; height:30px" #newmail  ></p>
+          <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Mail" (click)="update(1,newmail)"/>                    
+    
+        </div>
+        <div *ngIf="ch_address ==true" class="center">
+             Please Fill in the Details of your new Address <br>
+             <form [formGroup]="addressRef">
+            <p><input class="w3-input w3-border w3-hover-grey" type="text" placeholder="Address 1" style="width:450px; height:30px" formControlName="address_1"  ></p>
+            <p><input class="w3-input w3-border w3-hover-grey" type="text"placeholder="Address 2"  style="width:450px; height:30px" formControlName="address_2"  ></p>
+            <p><input class="w3-input w3-border w3-hover-grey" type="text" placeholder="Address 3" style="width:450px; height:30px" formControlName="address_3"  ></p>
+            <p><input class="w3-input w3-border w3-hover-grey" type="text" placeholder="Address 4" style="width:450px; height:30px" formControlName="address_4"  ></p>
+            <p><input class="w3-input w3-border w3-hover-grey" type="text" placeholder="City" style="width:450px; height:30px" formControlName="city"  ></p>
+            State:
+            <select class="w3-select" name="option" style="width: 450px;" formControlName="state" >
+                <option value="" disabled selected>State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Odisha">Odisha</option><option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option><option value="Chattisgarh">Chattisgarh</option>
+                <option value="Goa">Goa</option><option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Maharashtra">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option>
+                <option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option><option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option><option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option><option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
+                <option value="Delhi">Delhi</option><option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                <option value="Lakshadweep">Lakshadweep</option><option value="Puducherry">Puducherry</option><option value="Ladakh">Ladakh</option>
+              </select>          <br>
+        
+            <p><input class="w3-input w3-border w3-hover-grey" type="number" maxlength="6" placeholder="Pincode" style="width:450px; height:30px" formControlName="pincode"  ></p>
+            <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Address" (click)="updateaddress()"/>                    
+        </form>
+
+        </div>
+        <div *ngIf="ch_telephone ==true" class="center"> Please Enter Your New Telephone Number: <br>
+            <p><input class="w3-input w3-border w3-hover-grey" type="number" maxlength="10" placeholder="New Telephone" style="width:450px; height:30px" #newtel  ></p>
+            <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Contact Number" (click)="update(2,newtel)"/>                         
+        </div>
+
+        <div *ngIf="ch_password ==true" class="center"> Please Enter Your Current password: <br>
+            <p><input class="w3-input w3-border w3-hover-grey" type="password" placeholder="Current Password" style="width:450px; height:30px" #pass  ></p>
+            <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Next" (click)="update(3,pass)"/>                         
+        </div>
+
+        <div *ngIf="re_password ==true" class="center"> Please Enter Your New Password: <br>
+            <p><input class="w3-input w3-border w3-hover-grey" type="password" placeholder="New Password" style="width:450px; height:30px" #newpass  ></p>
+            <p><input class="w3-input w3-border w3-hover-grey" type="password" placeholder="Re-Enter New Password" style="width:450px; height:30px" #newpass_1  ></p>
+            <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Password" (click)="updatepass(newpass,newpass_1)"/>         
+            <p *ngIf="length_check==false" style="color:red;">{{msgl}}</p>
+            <p *ngIf="uppercase_check==false" style="color:red;">{{msgu}}</p>
+            <p *ngIf="lowercase_check==false" style="color:red;">{{msgn}}</p>
+            <p *ngIf="special_chr_check==false" style="color:red;">{{msgs}}</p>
+            <p *ngIf="number_check==false" style="color:red;">{{msgn}}</p>
+
+        </div>
+
+
+
+
+
+    
+            
+    
+    
+    </div>
+    
+</body>
+</html>

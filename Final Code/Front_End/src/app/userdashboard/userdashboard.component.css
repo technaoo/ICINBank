@@ -1,0 +1,25 @@
+.in{
+    background-color: black;
+    color:white;
+}
+.row:after{
+    content:"";
+    display: table;
+    clear:both;
+}
+.column{
+    float: left;
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    height: 900px;
+}
+*{
+    box-sizing: border-box;
+}
+.oneacc{
+    width:100%;
+    text-align: center;
+    height:200px;
+    padding:10px;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <div class="heading">
+        Online Application
+    </div> -->
+    <div class="center" [style]="f1">
+    <h3>SIGN UP</h3><br/>
+    <p>Drop in your credentials below!</p>
+    
+    <form [formGroup]="SignupRef"  class="w3-container w3-card-4" (ngSubmit)="Submit()">
+        <p>Let's start with your personal details</p>
+    <p><input class="w3-input w3-border w3-hover-grey" type="text"  style="width: 450px; height: 30px;" placeholder="Forename" formControlName="forename" ></p>
+   <p><input class="w3-input w3-border w3-hover-grey" type="text"  style="width:450px; height:30px" 
+       placeholder="Surname" formControlName="surname" ></p>
+    <p><input class="w3-input w3-border w3-hover-grey" type="email" style="width:450px; height: 30px;"
+        placeholder="Mail Address" formControlName="email" ></p>
+   <p><input class="w3-input w3-border w3-hover-grey" type ="number" maxlength="10" style="width:450px; height:30px" 
+       placeholder="Mobile Address" formControlName="telephone_no" ></p>
+   <p><input class="w3-input w3-border w3-hover-grey" type="date"  style="width:450px; height:30px" 
+        placeholder="Date Of Birth" formControlName="dob" ></p><br>
+ 
+
+
+
+       <p>Prefered Account type?</p>
+       <select class="w3-select" name="option" style="width:450px;" formControlName="account_type" value="2">
+        <option value="" disabled selected>Choose your prefered account type</option>
+        <option value="1">Singular (Primary)</option>
+        <option value="3">Savings</option>
+        <option value="2">Primary & Savings</option>
+      </select>
+       <p>Where do you live?</p>
+       <p><input class="w3-input w3-border w3-hover-grey" type="text" style="width:450px; height: 30px;"
+        placeholder="Address 1" formControlName="address_1" ></p>
+   <p><input class="w3-input w3-border w3-hover-grey" type="text"  style="width:450px; height:30px" 
+       placeholder="Address 2" formControlName="address_2"></p>
+       <p><input class="w3-input w3-border w3-hover-grey" type="text" style="width:450px; height: 30px;"
+        placeholder="Address 3" formControlName="address_3"></p>
+   <p><input class="w3-input w3-border w3-hover-grey" type="text"  style="width:450px; height:30px" 
+       placeholder="Address 4" formControlName="address_4"></p>
+
+       Select a state below from the list
+        
+       <select class="w3-select" name="option" style="width: 450px;" formControlName="state" >
+        <option value="" disabled selected>State</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Odisha">Odisha</option><option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option><option value="Chattisgarh">Chattisgarh</option>
+        <option value="Goa">Goa</option><option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Maharashtra">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option>
+        <option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option><option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option><option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Chandigarh">Chandigarh</option><option value="Dadra & Nagar Haveli and Daman & Diu">Dadra & Nagar Haveli and Daman & Diu</option>
+        <option value="Delhi">Delhi</option><option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Lakshadweep">Lakshadweep</option><option value="Puducherry">Puducherry</option><option value="Ladakh">Ladakh</option>
+      </select>          <br>
+      <p><input class="w3-input w3-border w3-hover-grey" type="text" style="width:450px; height:30px" 
+        placeholder="City" formControlName="city" ></p>
+
+
+        <p><input class="w3-input w3-border w3-hover-grey" type="number"  maxlength="6" style="width:450px; height:30px" 
+            placeholder="Pincode" formControlName="pincode"></p>* The country is India by default
+     
+  <br><br>
+       Credential:
+       <form [formGroup]="PassRef" (ngSubmit)="CheckPassword()"> *Password should contain at least one special character and number <br>
+        *Password should contain more than 8 characters and at least one UpperCase letter.
+       <p><input class="w3-input w3-border w3-hover-grey" type="password"   style="width:450px; height: 30px;"
+        placeholder="Password"  formControlName="password"></p>
+        <p><input class="w3-input w3-border w3-hover-grey" type="password"  style="width:450px; height: 30px;"
+            placeholder="Re-enter Password"  formControlName="re_password"></p>
+            <input type="submit"  class="w3-btn w3-small w3-ripple w3-black" value="Check Password"  /><br>
+            <p *ngIf="length_check==false" style="color:red;">{{msgl}}</p>
+            <p *ngIf="uppercase_check==false" style="color:red;">{{msgu}}</p>
+            <p *ngIf="lowercase_check==false" style="color:red;">{{msgls}}</p>
+            <p *ngIf="special_chr_check==false" style="color:red;">{{msgs}}</p>
+            <p *ngIf="number_check==false" style="color:red;">{{msgn}}</p>
+
+        </form><br>
+            *Your account's ID will be issued after you submit <br> this info. <br><br>
+            <input type="submit"  class="w3-btn w3-ripple w3-small w3-black" value="Submit the Form"  [disabled]="ensubmit" /> <span>  {{msg}}</span><br>
+        </form>
+    </div>
+
+
+ 
+</body>
+</html>

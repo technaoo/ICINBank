@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <form [formGroup]="SigninRef" class="w3-container center w3-card-4" (ngSubmit)="Verify()">
+        <h2>Login</h2>
+        <p>Have an account?,Drop in the credentials below!</p>
+         
+        <p><input class="w3-input w3-border w3-hover-grey" type="text" [defaultValue]="no" id="ID" style="width:400px; height: 30px;"
+            placeholder="Username (*Customer ID/Admin ID)" formControlName="customer_repoid"></p>
+        <p><input class="w3-input w3-border w3-hover-grey" type="password" value ="noice" id="pass" style="width:400px; height:30px" 
+            placeholder="Password" formControlName="password"></p> Type Of User<br/>
+        <select class="w3-select" formControlName="account_type" value="Type of user">
+        <option value="0"  >Type of user</option>
+        <option value="1" seledted>User</option>
+        <option value="2">Admin</option>
+        </select><br/><br/>
+        <input type="submit" class="w3-btn w3-ripple w3-black" value="Login" [disabled]="disabled">  <span style="color:red">  {{msg}}</span><br/><br>
+        Ain't got an account?, Let's get you one! <input class="w3-btn w3-ripple w3-black" type="submit" value="Click here" (click)="transfer()">
+
+
+
+        <!-- <p><input class="w3-radio" type="radio" value="User" checked><label> User</label></p>
+        <p><input class="w3-radio" type="radio" value="Admin"> <label> Admin</label></p> -->
+         
+  
+      </form>
+    </div>
+
+</body>
+</html>

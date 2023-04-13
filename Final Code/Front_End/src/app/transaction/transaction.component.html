@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="w3-bar w3-border w3-black">
+        <input type="button" value="Home" class="w3-bar-item w3-button" (click)="navigate('userDash')">
+        <input type="button" value="Transaction" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('transaction')">
+        <input type="button" value="Cheques" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('cheques')">
+        <input type="button" value="Deposit" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('deposit')">
+        <input type="button" value="My Profile" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('profile')">
+        <input type="button" value="Log out" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="logout()">
+      </div>
+
+
+      <div class="w3-container" *ngIf="view==true">
+            
+        <table class="w3-table-all">
+        <thead>
+            <tr class="w3-light-grey w3-hover-black">
+              <th>Transaction ID</th>
+              <th>Credited/Debited</th>
+              <th>Transaction done via:</th>
+              <th>Amount( &#8377; )</th>
+              <th>Date(dd/MM/yyyy)</th>
+              <th>Time(hh:mm:ss)</th>
+            </tr>
+          </thead>
+          <tr class="w3-hover-text-grey" *ngFor="let transaction of transactions">
+            <td> {{transaction.transaction_id}} </td>
+            <td> <div *ngIf="transaction.type_of_transaction == 1; then ths else tat"></div> 
+                <ng-template #ths > Credited </ng-template>
+                <ng-template #tat> Debited</ng-template></td>
+
+            <td> <div  *ngIf="transaction.generation_method == 1; then upi else debit"></div>
+                <ng-template #upi> UPI </ng-template>
+                <ng-template #debit>Debit/Credit Card</ng-template>
+            </td>
+            <td> {{transaction.amount}} </td>
+            <td> {{transaction.date}} </td>
+            <td> {{transaction.time}} </td>
+            
+          </tr>
+        </table>
+
+      </div>
+
+
+</body>
+</html>

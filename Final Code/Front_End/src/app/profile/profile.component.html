@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="w3-bar w3-border w3-black">
+        <input type="button" value="Home" class="w3-bar-item w3-button" (click)="navigate('userDash')">
+        <input type="button" value="Transaction" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('transaction')">
+        <input type="button" value="Cheques" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('cheques')">
+        <input type="button" value="Deposit" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('deposit')">
+        <input type="button" value="My Profile" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="navigate('profile')">
+        <input type="button" value="Log out" class="w3-bar-item w3-button w3-hover-none w3-text-grey w3-hover-text-white" (click)="logout()">
+
+    </div>
+    <div class="div">
+        
+        <div class="w3-container w3-grey w3-container" style="text-align: center;">
+            <h2 style="text-shadow:2px 2px 0 #444"> <b> User Details </b> </h2>
+            <ul class="w3-ul w3-hoverable">
+                <li><b>Customer ID</b> {{id}}  </li>
+                <li> <b>Account Holder:</b> {{forename}} {{surname}}</li>
+                <li> <b> Date Of Birth:</b> {{dob}}  </li>
+                <li><b>Mail:</b> {{mail}}  <span style="text-align: right;">    <br></span></li>
+                <li> <b>Telephone Number:</b> {{telephone}} </li>
+            </ul> <hr>
+            <ul class="w3-ul w3-hoverable"> <b>Address:</b> <br>
+                <li> <b>State:</b> {{state}} </li>
+                <li><b>City:</b> {{city}} </li>
+                <li><b>Address 1:</b> {{address_1}} </li>
+                <li *ngIf="address_2 !=null"> <b>Address 2:</b> {{address_2}} </li>
+                <li *ngIf="address_3 !=null"> <b>Address 3:</b> {{address_3}} </li>
+                <li *ngIf="address_4 !=null"> <b>Address 4:</b> {{address_4}} </li>
+                <li> <b>Pincode:</b> {{pincode}}</li>
+            </ul>
+
+            <div class="w3-container">
+            <ul class="w3-ul w3-hoverable">
+             <hr>
+                <div class="w3-bar">
+                    <b>Update Information:</b> <br><br>
+                    <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Mail" (click)="updatemail()" />
+                    <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Contact Number" (click)="updatetel()" />                    
+                    <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Update Address" (click)="updateaddress()" />         
+                    <input type="button"  class="w3-btn w3-small w3-ripple w3-red" value="Change Password" (click)="updatePassword()" />              
+                </div>
+            
+            </ul>
+            </div>
+
+        </div>
+    
+
+       </div>
+</body>
+</html>
